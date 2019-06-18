@@ -1,10 +1,11 @@
-import java.util.TreeSet;
+import java.util.ArrayList;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        TreeSet<Double> newList = Methods.newTreeSet();
-        System.out.println(Methods.reverseTable(newList));
+        ArrayList<Double> newList = Methods.newArrayList();
+        Methods.reverseTable(newList);
         Methods.simpleMath(newList);
         Methods.bigSmallElement(newList);
 

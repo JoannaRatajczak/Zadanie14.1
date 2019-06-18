@@ -1,14 +1,10 @@
+import java.util.*;
 
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.TreeSet;
-
-import static java.lang.Math.E;
 
 public class Methods {
 
-    static TreeSet<Double> newTreeSet() {
-        TreeSet<Double> treeSet = new TreeSet<>();
+    static ArrayList<Double> newArrayList() {
+        ArrayList<Double> list = new ArrayList<Double>();
         Scanner scanner = new Scanner(System.in);
         double temp;
 
@@ -17,33 +13,36 @@ public class Methods {
         do {
             temp = scanner.nextDouble();
             if (temp > 0) {
-                treeSet.add(temp);
+                list.add(temp);
             }
         }
         while (temp > 0);
-        System.out.println("TreeSet has been made. Size: " + treeSet.size());
-        return treeSet;
+        System.out.println("ArrayList has been made. Size: " + list.size());
+        return list;
     }
 
-    static String reverseTable(TreeSet<Double> treeSet) {
-        return "Reverse order:" + treeSet.descendingSet().toString(); //descendingIterator() other...
+    static void reverseTable(ArrayList<Double> list) {
+        System.out.println("Revwerse List: ");
+        for (int i = list.size() - 1; i >= 0; i--) {
+            System.out.println(list.get(i));
+        }
     }
 
-    static void simpleMath(TreeSet<Double> treeSet) {
+    static void simpleMath(ArrayList<Double> list) {
         System.out.print("Simple math, adding all elemnts: ");
 
-        Object[] table = treeSet.toArray();
+        Object[] table = list.toArray();
         double sum = 0;
         for (int i = 0; i < table.length; i++) {
             sum += (double) table[i];
         }
 
         //Wyświetlanie po kolei z użyciem biblioteki iterator -> forEachRemaining() / remove()
-        Iterator iterator = treeSet.iterator();
+        Iterator iterator = list.iterator();
         int i = 0;
         while (iterator.hasNext()) {
             i++; //by wyświetlić ostatni element
-            if (i < treeSet.size()) {
+            if (i < list.size()) {
                 System.out.print(iterator.next() + "+");
             } else {
                 System.out.println(iterator.next() + "=" + sum);
@@ -52,9 +51,9 @@ public class Methods {
 
     }
 
-    static void bigSmallElement(TreeSet<Double> treeSet) {
-        treeSet.addAll(treeSet); //sort-natuall order
-        System.out.println("Biggest no. : " + treeSet.last() + ", smallest one : " + treeSet.first());
+    static void bigSmallElement(ArrayList<Double> list) {
+        list.sort(Comparator.naturalOrder());
+        System.out.println("Biggest no. : " + list.get(list.size() - 1) + ", smallest one : " + list.get(0));
 
     }
 
