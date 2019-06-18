@@ -30,23 +30,22 @@ public class Methods {
 
     static void simpleMath(ArrayList<Double> list) {
         System.out.print("Simple math, adding all elemnts: ");
-
-        Object[] table = list.toArray();
         double sum = 0;
-        for (int i = 0; i < table.length; i++) {
-            sum += (double) table[i];
-        }
 
         //Wyświetlanie po kolei z użyciem biblioteki iterator -> forEachRemaining() / remove()
         Iterator iterator = list.iterator();
-        int i = 0;
+        int i = 0; //wyświetlanie elementów
+        int j = 0; //suma elementów
         while (iterator.hasNext()) {
-            i++; //by wyświetlić ostatni element
+            i++; 
             if (i < list.size()) {
+                sum += list.get(j);
                 System.out.print(iterator.next() + "+");
             } else {
+                sum += list.get(j);
                 System.out.println(iterator.next() + "=" + sum);
             }
+            j++;
         }
 
     }
